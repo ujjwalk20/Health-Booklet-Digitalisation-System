@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>HMS - Django</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="{% static '/style.css' %}">
+
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+    body {
+  background-color: lightblue;
+}
+
+
+    a {
+      color: rgb(202, 35, 35);
+    }
+
+    a:hover {
+      color: white;
+    }
+
+    #ftr {
+
+      padding: 20px;
+    }
+
+    .fa {
+
+      font-size: 23px;
+      width: 60px;
+      text-align: center;
+      text-decoration: none;
+      margin: 5px 2px;
+      border-radius: 50%;
+    }
+
+    p {
+      text-align: center;
+
+    }
+    .menu{
+      background : transparent;
+    }
+    .avatar{
+      border-radius: 50%;
+    }
+
+    body {
+      background-image : url('https://surge.iitk.ac.in/images/iitk1.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="menu" tabindex="0">
+    <div class="smartphone-menu-trigger"></div>
+    <header class="avatar">
+      <img src="{% static "images/admin.png" %}" />
+      <br><br>
+      <h2>Receptionist</h2>
+    </header>
+  </nav>
+
+  <main>
+
+    <div class="bs-example">
+      <nav class="navbar navbar-expand-lg  navbar-dark fixed-top" style="background:black;">
+        <a href="#" class="navbar-brand">Health Center IITK</a>
+        <a href="/admin-dashboard" class="nav-item nav-link">Home</a>
+        <a href="/admin-doctor" class="nav-item nav-link">Doctor</a>
+        <a href="/admin-patient" class="nav-item nav-link">Patient</a>
+        <a href="/admin-appointment" class="nav-item nav-link">Appointment</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+          <div class="navbar-nav" style=" margin-left: 90%;">
+
+            <a href="/logout" class="nav-item nav-link">Logout</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  
+    <br><br>
+
+    {% block content %}
+
+    {% endblock content %}
+    <br><br><br><br>
+  </main>
+</body>
+</html>
