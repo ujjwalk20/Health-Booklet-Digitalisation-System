@@ -9,13 +9,7 @@
       size: A4;
       margin: 1cm;
 
-      @frame footer {
-        -pdf-frame-content: footerContent;
-        bottom: 0cm;
-        margin-left: 9cm;
-        margin-right: 9cm;
-        height: 1cm;
-      }
+
     }
 
     .invoice-box {
@@ -122,14 +116,12 @@
           <table>
             <tr>
               <td class="title">
-                <h5>Hospital Management</h5>
+                <h5>Health Center IITK</h5>
               </td>
 
               <td>
 
-                Admit Date: {{admitDate}}<br>
                 Release Date: {{releaseDate}}<br>
-                Days Spent: {{daySpent}}
               </td>
             </tr>
           </table>
@@ -144,12 +136,6 @@
                 Patient Name : {{patientName}}<br>
                 Patient Contact : {{mobile}}<br>
                 Patient Addres : {{address}}<br>
-              </td>
-
-              <td>
-                Doctor Name :<br>
-                {{assignedDoctorName}}<br>
-
               </td>
             </tr>
           </table>
@@ -179,10 +165,9 @@
             <tr>
               <td>
                 Charges :<br><br>
-                Room Charge of {{daySpent}} Days : {{roomCharge}}<br>
-                Doctor Fee : {{doctorFee}}<br>
+                Prescription : {{roomCharge}}<br>
+                Lab Fee : {{doctorFee}}<br>
                 Medicine Cost : {{medicineCost}}<br>
-                Other Charge : {{OtherCharge}} <br><br>
                 &nbsp &nbsp &nbsp &nbsp &nbsp Total : {{total}}
               </td>
             </tr>

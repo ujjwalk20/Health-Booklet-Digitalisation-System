@@ -80,10 +80,13 @@
             <div class="form-group">
               {% render_field patientForm.mobile class="form-control" placeholder="Contact" %}
             </div>
+            <div class="form-group">
+              {% render_field patientForm.assignedDoctorId class="form-control" placeholder="Doctor" %}
+            </div>
           </div>
         </div>
         <center>
-        <button type="submit" class="btnSubmit">Update</button>
+          <button type="submit" class="btnSubmit">Update</button>
         </center>
       </div>
     </div>

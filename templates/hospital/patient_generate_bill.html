@@ -114,14 +114,12 @@
         <table>
           <tr>
             <td class="title">
-              <h1>Hospital Management</h1>
+              <h1>Health Center IITK</h1>
             </td>
 
             <td>
 
-              Admit Date: {{admitDate}}<br>
               Release Date: {{todayDate}}<br>
-              Days Spent: {{day}}
             </td>
           </tr>
         </table>
@@ -136,12 +134,6 @@
               Patient Name : {{name}}<br>
               Patient Contact : {{mobile}}<br>
               Patient Addres : {{address}}<br>
-            </td>
-
-            <td>
-              Doctor Name :<br>
-              {{assignedDoctorName}}<br>
-
             </td>
           </tr>
         </table>
@@ -169,7 +161,7 @@
       </td>
 
       <td>
-        Price
+
       </td>
     </tr>
     <form method="post">
@@ -177,21 +169,21 @@
 
       <tr class="item">
         <td>
-          Medicine 
+          Prescription
         </td>
-
+        <!-- <textarea id="w3review" name="w3review" rows="4" cols="50"></textarea> -->
         <td>
-          <input type="text" name="roomCharge" placeholder="Medicines" value="">
+          <textarea type="text" name="roomCharge" placeholder="Prescription" value="" rows="4" cols="50"></textarea>
         </td>
       </tr>
 
       <tr class="item">
         <td>
-          Doctor Fee
+          Lab Fee
         </td>
 
         <td>
-          <input type="number" name="doctorFee" placeholder="In Dollars" value="">
+          <input type="number" name="doctorFee" placeholder="In rs" value="">
         </td>
       </tr>
 
@@ -201,22 +193,14 @@
         </td>
 
         <td>
-          <input type="number" name="medicineCost" placeholder="In Dollars" value="">
+          <input type="number" name="medicineCost" placeholder="In rs" value="">
         </td>
       </tr>
 
-      <tr class="item last">
-        <td>
-          Other Charge
-        </td>
 
-        <td>
-          <input type="number" name="OtherCharge" placeholder="In Dollars" value="">
-        </td>
-      </tr>
 
       <tr class="total">
-        <td></td>
+        <td>Total</td>
 
         <td>
           <input type="submit" name="submit" value="Generate Bill">

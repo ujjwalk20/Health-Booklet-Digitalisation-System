@@ -8,6 +8,7 @@
 
   <style>
     .invoice-box {
+      background-color: antiquewhite;
       max-width: 800px;
       margin: auto;
       padding: 30px;
@@ -118,15 +119,12 @@
         <table>
           <tr>
             <td class="title">
-              <h1>Hospital Management</h1>
+              <h1>Health Center IITK</h1>
             </td>
 
             <td>
-
-              Admit Date: {{admitDate}}<br>
               Release Date: {{todayDate}}<br>
-              Days Spent: {{day}}
-            </td>
+              = </td>
           </tr>
         </table>
       </td>
@@ -140,12 +138,6 @@
               Patient Name : {{name}}<br>
               Patient Contact : {{mobile}}<br>
               Patient Addres : {{address}}<br>
-            </td>
-
-            <td>
-              Doctor Name :<br>
-              {{assignedDoctorName}}<br>
-
             </td>
           </tr>
         </table>
@@ -173,13 +165,13 @@
       </td>
 
       <td>
-        Price
+
       </td>
     </tr>
 
     <tr class="item">
       <td>
-        Room Charge of {{day}} Days
+        Prescription
       </td>
 
       <td>
@@ -189,7 +181,7 @@
 
     <tr class="item">
       <td>
-        Doctor Fee
+        Lab Fee
       </td>
 
       <td>
@@ -204,16 +196,6 @@
 
       <td>
         {{medicineCost}}
-      </td>
-    </tr>
-
-    <tr class="item last">
-      <td>
-        Other Charge
-      </td>
-
-      <td>
-        {{OtherCharge}}
       </td>
     </tr>
 

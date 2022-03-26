@@ -37,6 +37,9 @@
           <th>Contact</th>
           <th>Address</th>
           <th>Appointment Date</th>
+          <!-- <th>Prescription status</th>
+          <th>Prescription</th> -->
+          <th>Add Description</th>
         </tr>
       </thead>
       {% for a,p in appointments %}
@@ -48,6 +51,12 @@
         <td>{{p.mobile}}</td>
         <td>{{p.address}}</td>
         <td>{{a.appointmentDate}}</td>
+        <!-- <td>{{a.appointmentDate}}</td> -->
+        <!-- <td>{{a.pre_status}}</td>
+        <td>{{a.prescription}}</td> -->
+        <td><a class="btn btn-primary btn-xs" href="{% url 'doctor-update-appointment' a.id  %}"><span
+              class="glyphicon glyphicon-edit"></span></a></td>
+
       </tr>
       {% endfor %}
     </table>

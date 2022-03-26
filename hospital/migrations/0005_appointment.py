@@ -11,11 +11,13 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Appointment',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
                 ('patientId', models.PositiveIntegerField()),
                 ('doctorId', models.PositiveIntegerField()),
                 ('appointmentDate', models.DateField(auto_now=True)),
                 ('description', models.TextField(max_length=500)),
+                ('prescription', models.TextField(max_length=500)),
             ],
         ),
     ]

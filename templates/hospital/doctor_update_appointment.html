@@ -1,0 +1,70 @@
+{% extends 'hospital/doctor_base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style>
+        form {
+            background-color: transparent;
+        }
+    </style>
+</head>
+<div class="container">
+    <!-- <table class="table table-hover" id="dev-table">
+        <thead>
+            <tr>
+                <th>Patient Id</th>
+                <th>Patient Name</th>]
+                <th>Description</th>=
+                <th>Appointment Date</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>{{ap.patientId}}</td>
+            <td>{{ap.patientName}}</td>
+            <td>{{ap.description}}</td>
+            <td>{{ap.appointmentDate}}</td>
+
+        </tr>
+
+    </table> -->
+    <center>
+        <h1>Add the prescription</h1>
+    </center>
+    <table class="table table-dark" id="dev-table">
+        <tr>
+            <th>Name</th>
+            <th>Id</th>
+            <th>Date</th>
+        </tr>
+        <tr>
+
+            <td>{{ap.patientName}}</td>
+            <td>{{ap.patientId}}</td>
+            <td>{{ap.appointmentDate}}</td>
+        </tr>
+    </table>
+    <!-- <center>
+        <h2 style="color: black;">Name :{{ap.patientName}} Id:{{ap.patientId}} Date:{{ap.appointmentDate}}</h2>
+    </center> -->
+    <center>
+        <form method="post" action="{% url 'prescription-doc-update' ap.id  %}">
+            {% csrf_token %}
+            <textarea id="doc_pre" name="doc_pre" rows="10" cols="100">
+         {{ap.description}}
+        </textarea>
+            <!-- <input type="text" id="doc_pre" name="doc_pre"> -->
+            <br>
+
+            <input type="submit" value="Submit" style="color:black">
+        </form>
+    </center>
+</div>
+
+
+
+
+{% endblock content %}

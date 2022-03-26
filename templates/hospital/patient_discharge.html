@@ -108,8 +108,9 @@
       text-align: center;
       display: block;
     }
+
     body {
-      background-image : url('https://surge.iitk.ac.in/images/iitk1.jpg');
+      background-image: url('https://surge.iitk.ac.in/images/iitk1.jpg');
       background-size: cover;
       background-repeat: no-repeat;
     }
@@ -126,14 +127,12 @@
         <table>
           <tr>
             <td class="title">
-              <h1>Hospital Management</h1>
+              <h1>Health Center IITK</h1>
             </td>
 
             <td>
 
               Admit Date: {{admitDate}}<br>
-              Release Date: {{releaseDate}}<br>
-              Days Spent: {{daySpent}}
             </td>
           </tr>
         </table>
@@ -148,12 +147,6 @@
               Patient Name : {{patientName}}<br>
               Patient Contact : {{mobile}}<br>
               Patient Addres : {{address}}<br>
-            </td>
-
-            <td>
-              Doctor Name :<br>
-              {{assignedDoctorName}}<br>
-
             </td>
           </tr>
         </table>
@@ -181,13 +174,13 @@
       </td>
 
       <td>
-        Price
+
       </td>
     </tr>
 
     <tr class="item">
       <td>
-        Room Charge of {{daySpent}} Days
+        Prescription
       </td>
 
       <td>
@@ -197,7 +190,7 @@
 
     <tr class="item">
       <td>
-        Doctor Fee
+        Lab Fee
       </td>
 
       <td>
@@ -215,15 +208,7 @@
       </td>
     </tr>
 
-    <tr class="item last">
-      <td>
-        Other Charge
-      </td>
 
-      <td>
-        {{OtherCharge}}
-      </td>
-    </tr>
 
     <tr class="total">
       <td></td>
