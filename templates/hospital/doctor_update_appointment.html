@@ -54,7 +54,7 @@
         <form method="post" action="{% url 'prescription-doc-update' ap.id  %}">
             {% csrf_token %}
             <textarea id="doc_pre" name="doc_pre" rows="10" cols="100">
-         {{ap.description}}
+         {{ap.prescription}}
         </textarea>
             <!-- <input type="text" id="doc_pre" name="doc_pre"> -->
             <br>

@@ -515,18 +515,18 @@ def update_appointment_view(request, pk):
     # for profile picture of doctor in sidebar
     if request.method == 'POST':
         appointment = models.Appointment.objects.get(id=pk)
-        appointment.description = request.POST.get('doc_pre')
-        # appointment.pre_status = True
+        appointment.prescription = request.POST.get('doc_pre')
+        appointment.pre_stat = True
         appointment.save()
     doctor = models.Doctor.objects.get(user_id=request.user.id)
     appointments = models.Appointment.objects.all().filter(
         status=True, doctorId=request.user.id)
-    patientid = []
-    for a in appointments:
-        patientid.append(a.patientId)
-    patients = models.Patient.objects.all().filter(
-        status=True, user_id__in=patientid)
-    appointments = zip(appointments, patients)
+    # patientid = []
+    # for a in appointments:
+    #     patientid.append(a.patientId)
+    # patients = models.Patient.objects.all().filter(
+    #     status=True, user_id__in=patientid)
+    # appointments = zip(appointments, patients)
     # return redirect(reverse('admin-approve-appointment'))
     return render(request, 'hospital/doctor_view_appointment.html', {'appointments': appointments, 'doctor': doctor})
     # appointment = models.Appointment.objects.get(id=pk)
@@ -624,14 +624,12 @@ def doctor_appointment_view(request):
 def doctor_view_appointment_view(request):
     # for profile picture of doctor in sidebar
     doctor = models.Doctor.objects.get(user_id=request.user.id)
-    appointments = models.Appointment.objects.all().filter(
-        status=True, doctorId=request.user.id)
-    patientid = []
-    for a in appointments:
-        patientid.append(a.patientId)
-    patients = models.Patient.objects.all().filter(
-        status=True, user_id__in=patientid)
-    appointments = zip(appointments, patients)
+    appointments = models.Appointment.objects.all().filter(doctorId=request.user.id)
+    # patientid = []
+    # for a in appointments:
+    #     patientid.append(a.patientId)
+    # patients = models.Patient.objects.all().filter(user_id__in=patientid)
+    # appointmentss = zip(appointments, patients)
     return render(request, 'hospital/doctor_view_appointment.html', {'appointments': appointments, 'doctor': doctor})
 
 
