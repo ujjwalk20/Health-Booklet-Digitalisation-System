@@ -4,7 +4,9 @@
 <head>
   <meta charset="utf-8">
   <title></title>
-
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@1,700&family=Permanent+Marker&family=Raleway:ital@1&family=Work+Sans:ital,wght@0,500;1,900&display=swap');
+    </style>
   <style media="screen">
     body {
   background-color: lightblue;
@@ -35,7 +37,7 @@
     }
 
     .market-update-block.clr-block-1 {
-      background: #f44336;
+      background:#001f3f;
       margin-right: 0.8em;
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
       transition: 0.5s all;
@@ -45,22 +47,26 @@
     }
 
     .market-update-block.clr-block-2 {
-      background: #FC8213;
+      background:#85144b;
       margin-right: 0.8em;
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
       transition: 0.5s all;
       -webkit-transition: 0.5s all;
       -moz-transition: 0.5s all;
       -o-transition: 0.5s all;
+      margin-top: 10px;
+      
     }
 
     .market-update-block.clr-block-3 {
-      background: #3f51b5;
+      background: #3D9970;
+      margin-right: 0.8em;
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
       transition: 0.5s all;
       -webkit-transition: 0.5s all;
       -moz-transition: 0.5s all;
       -o-transition: 0.5s all;
+      margin-top: 10px;
     }
 
     .market-update-right i.fa.fa-user-o {
@@ -75,6 +81,7 @@
       -moz-border-radius: 49px;
       -o-border-radius: 49px;
       line-height: 1.7em;
+      
     }
 
     .market-update-right i.fa.fa-user-md {
@@ -108,6 +115,10 @@
     .market-update-left {
       padding: 0px;
     }
+    h1{
+      color: #fff;
+      font-family: 'Work Sans', sans-serif;
+    }
   </style>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -122,7 +133,7 @@
         <div class="col-md-8 market-update-left">
           <h3>{{doctorcount}}</h3>
           <h4>Total Doctor</h4>
-          <p style="font-size:40px;">Approval Required : {{pendingdoctorcount}}</p>
+          <h1 style="color: #fff;">Approval Required : {{pendingdoctorcount}}</h1>
         </div>
         <div class="col-md-4 market-update-right">
           <i class="fa fa-user-md"></i>
@@ -135,7 +146,7 @@
         <div class="col-md-8 market-update-left">
           <h3>{{patientcount}}</h3>
           <h4>Total Patient</h4>
-          <p style="font-size:40px;">Approval Required : {{pendingpatientcount}}</p>
+          <h1 style="color: #fff;">Approval Required : {{pendingpatientcount}}</h1>
         </div>
         <div class="col-md-4 market-update-right">
           <i class="fa fa-user-o"></i>
@@ -147,7 +158,7 @@
       <div class="market-update-block clr-block-3">
         <div class="col-md-8 market-update-left">
           <h3>{{appointmentcount}}</h3>
-          <h4>Total Appointment</h4>
+          <h4 style="font-family: 'Work Sans', sans-serif;">Total Appointment</h4>
          
         </div>
         <div class="col-md-4 market-update-right">

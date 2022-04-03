@@ -386,11 +386,10 @@ def discharge_patient_view(request, pk):
     }
     if request.method == 'POST':
         feeDict = {
-            'roomCharge': int(request.POST['roomCharge'])*int(d),
+            'roomCharge': request.POST['roomCharge'],
             'doctorFee': request.POST['doctorFee'],
             'medicineCost': request.POST['medicineCost'],
-            'OtherCharge': request.POST['OtherCharge'],
-            'total': (int(request.POST['roomCharge'])*int(d))+int(request.POST['doctorFee'])+int(request.POST['medicineCost'])+int(request.POST['OtherCharge'])
+            'total': int(request.POST['doctorFee'])+int(request.POST['medicineCost'])
         }
         patientDict.update(feeDict)
         # for updating to database patientDischargeDetails (pDD)
@@ -405,11 +404,10 @@ def discharge_patient_view(request, pk):
         pDD.releaseDate = date.today()
         pDD.daySpent = int(d)
         pDD.medicineCost = int(request.POST['medicineCost'])
-        pDD.roomCharge = int(request.POST['roomCharge'])*int(d)
+        pDD.roomCharge = request.POST['roomCharge']
         pDD.doctorFee = int(request.POST['doctorFee'])
-        pDD.OtherCharge = int(request.POST['OtherCharge'])
-        pDD.total = (int(request.POST['roomCharge'])*int(d))+int(request.POST['doctorFee'])+int(
-            request.POST['medicineCost'])+int(request.POST['OtherCharge'])
+        pDD.total = int(request.POST['doctorFee'])+int(
+            request.POST['medicineCost'])
         pDD.save()
         return render(request, 'hospital/patient_final_bill.html', context=patientDict)
     return render(request, 'hospital/patient_generate_bill.html', context=patientDict)
@@ -455,8 +453,14 @@ def admin_appointment_view(request):
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
 def admin_view_appointment_view(request):
-    appointments = models.Appointment.objects.all().filter(status=True)
-    return render(request, 'hospital/admin_view_appointment.html', {'appointments': appointments})
+    if 'q' in request.GET : 
+      q = request.GET['q']
+      appointments = models.Appointment.objects.all().filter(doctorName__icontains=q,status=True)
+      return render(request, 'hospital/admin_view_appointment.html', {'appointments': appointments})
+    else :
+        appointments = models.Appointment.objects.all().filter(status=True)
+        return render(request, 'hospital/admin_view_appointment.html', {'appointments': appointments})
+    
 
 
 @login_required(login_url='adminlogin')
@@ -594,11 +598,24 @@ def doctor_patient_view(request):
 @login_required(login_url='doctorlogin')
 @user_passes_test(is_doctor)
 def doctor_view_patient_view(request):
-    patients = models.Patient.objects.all().filter(
-        status=True, assignedDoctorId=request.user.id)
+   # patients = models.Patient.objects.all().filter(
+    #    status=True, assignedDoctorId=request.user.id)
     # for profile picture of doctor in sidebar
-    doctor = models.Doctor.objects.get(user_id=request.user.id)
-    return render(request, 'hospital/doctor_view_patient.html', {'patients': patients, 'doctor': doctor})
+    #doctor = models.Doctor.objects.get(user_id=request.user.id)
+    #return render(request, 'hospital/doctor_view_patient.html', {'patients': patients, 'doctor': doctor})
+
+    if 'q' in request.GET : 
+         q = request.GET['q']
+         patients = models.Patient.objects.all().filter(
+         status=True, assignedDoctorId=request.user.id)
+         doctor = models.Doctor.objects.get(user_id=request.user.id)              
+         return render(request, 'hospital/doctor_view_patient.html', {'patients': patients, 'doctor': doctor})  
+    else :
+         patients = models.Patient.objects.all().filter(
+         status=True, assignedDoctorId=request.user.id)
+         # for profile picture of doctor in sidebar
+         doctor = models.Doctor.objects.get(user_id=request.user.id)
+         return render(request, 'hospital/doctor_view_patient.html', {'patients': patients, 'doctor': doctor})
 
 
 @login_required(login_url='doctorlogin')
@@ -623,14 +640,16 @@ def doctor_appointment_view(request):
 @user_passes_test(is_doctor)
 def doctor_view_appointment_view(request):
     # for profile picture of doctor in sidebar
-    doctor = models.Doctor.objects.get(user_id=request.user.id)
-    appointments = models.Appointment.objects.all().filter(doctorId=request.user.id)
-    # patientid = []
-    # for a in appointments:
-    #     patientid.append(a.patientId)
-    # patients = models.Patient.objects.all().filter(user_id__in=patientid)
-    # appointmentss = zip(appointments, patients)
-    return render(request, 'hospital/doctor_view_appointment.html', {'appointments': appointments, 'doctor': doctor})
+    if 'q' in request.GET : 
+      q = request.GET['q']
+      doctor = models.Doctor.objects.get(user_id=request.user.id)
+      appointments = models.Appointment.objects.all().filter(patientName__icontains=q , doctorId=request.user.id)
+      return render(request, 'hospital/doctor_view_appointment.html', {'appointments': appointments, 'doctor': doctor})  
+    else :
+        doctor = models.Doctor.objects.get(user_id=request.user.id)
+        appointments = models.Appointment.objects.all().filter(doctorId=request.user.id)
+        return render(request, 'hospital/doctor_view_appointment.html', {'appointments': appointments, 'doctor': doctor})
+    
 
 
 @login_required(login_url='doctorlogin')
@@ -784,10 +803,15 @@ def patient_book_appointment_view(request):
 @user_passes_test(is_patient)
 def patient_view_appointment_view(request):
     # for profile picture of patient in sidebar
-    patient = models.Patient.objects.get(user_id=request.user.id)
-    appointments = models.Appointment.objects.all().filter(patientId=request.user.id)
-    return render(request, 'hospital/patient_view_appointment.html', {'appointments': appointments, 'patient': patient})
-
+    if 'q' in request.GET : 
+      q = request.GET['q']
+      patient = models.Patient.objects.get(user_id=request.user.id)
+      appointments = models.Appointment.objects.all().filter(doctorName__icontains=q , patientId=request.user.id)
+      return render(request, 'hospital/patient_view_appointment.html', {'appointments': appointments, 'patient': patient})  
+    else :
+        patient = models.Patient.objects.get(user_id=request.user.id)
+        appointments = models.Appointment.objects.all().filter(patientId=request.user.id)
+        return render(request, 'hospital/patient_view_appointment.html', {'appointments': appointments, 'patient': patient})
 
 @login_required(login_url='patientlogin')
 @user_passes_test(is_patient)

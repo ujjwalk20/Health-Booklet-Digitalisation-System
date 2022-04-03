@@ -13,15 +13,15 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
   <link rel="stylesheet" href="{% static '/style.css' %}">
-
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@1,700&family=Permanent+Marker&family=Raleway:ital@1&family=Work+Sans:ital,wght@0,500;1,900&display=swap');
+    </style>
 
   <style media="screen">
     a:link {
       text-decoration: none;
     }
-    body {
-  background-color: lightblue;
-}
+ 
 
 
     a {
@@ -52,46 +52,49 @@
 
     }
     .menu{
-      background : transparent;
+      background-color: rgb(255, 253, 208);
     }
     .avatar{
       border-radius: 50%;
+      background-color: rgb(255, 253, 208);
     }
 
     body {
-      background-image : url('https://surge.iitk.ac.in/images/iitk1.jpg');
+      /* background-image : url('https://surge.iitk.ac.in/images/iitk1.jpg');
       background-size: cover;
-      background-repeat: no-repeat;
+      background-repeat: no-repeat; */
+      background-color: rgb(255, 253, 208);
+      font-family: 'Work Sans', sans-serif;
     }
   </style>
 </head>
-<body>
+<body style="background-color:rgb(255, 253, 208) ;" style="font-family: 'Work Sans', sans-serif;">
 
   <nav class="menu" tabindex="0">
     <div class="smartphone-menu-trigger"></div>
-    <header class="avatar">
+    <header style="background-color: rgb(255, 253, 208);" class="avatar">
       <img src="{% static "images/admin.png" %}" />
       <br><br>
-      <h2>Receptionist</h2>
+      <h2 style="font-family: 'Work Sans', sans-serif;">Receptionist</h2>
     </header>
   </nav>
 
   <main>
 
     <div class="bs-example">
-      <nav class="navbar navbar-expand-lg  navbar-dark fixed-top" style="background:black;">
+      <nav class="navbar navbar-expand-lg  navbar-dark fixed-top" style="background:rgb(121, 85, 72);">
         <a href="#" class="navbar-brand">Health Center IITK</a>
-        <a href="/admin-dashboard" class="nav-item nav-link">Home</a>
-        <a href="/admin-doctor" class="nav-item nav-link">Doctor</a>
-        <a href="/admin-patient" class="nav-item nav-link">Patient</a>
-        <a href="/admin-appointment" class="nav-item nav-link">Appointment</a>
+        <a href="/admin-dashboard" class="nav-item nav-link" style="color:white" style="font-family: 'Work Sans', sans-serif;">Home</a>
+        <a href="/admin-doctor" class="nav-item nav-link"style="color:white" style="font-family: 'Work Sans', sans-serif;">Doctor</a>
+        <a href="/admin-patient" class="nav-item nav-link"style="color:white"style="font-family: 'Work Sans', sans-serif;">Patient</a>
+        <a href="/admin-appointment" class="nav-item nav-link"style="color:white" style="font-family: 'Work Sans', sans-serif;">Appointment</a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
           <div class="navbar-nav" style=" margin-left: 90%;">
 
-            <a href="/logout" class="nav-item nav-link">Logout</a>
+            <a href="/logout" class="nav-item nav-link" style="color:white">Logout</a>
           </div>
         </div>
       </nav>

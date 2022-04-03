@@ -31,8 +31,9 @@
       <thead>
         <tr>
           <th>Name</th>
+          <th>ID</th>
           <th>Profile Picture</th>
-          <th>Symptoms</th>
+          <th>Allergies</th>
           <th>Contact</th>
           <th>Address</th>
 
@@ -41,6 +42,7 @@
       {% for p in patients %}
       <tr>
         <td> {{p.get_name}}</td>
+        <td> {{p.get_id}}</td>
         <td> <img src="{% static p.profile_pic.url %}" alt="Profile Pic" height="40px" width="40px" /></td>
         <td>{{p.symptoms}}</td>
         <td>{{p.mobile}}</td>

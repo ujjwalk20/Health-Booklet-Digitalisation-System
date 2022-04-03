@@ -6,7 +6,10 @@
 * {    
   box-sizing: border-box;   
 }  
-    
+html{
+    background: url('http://home.iitk.ac.in/~nishankm/lib.jpg');
+    background-size: cover;
+}  
 input[type=text], select, textarea {    
   width: 100%;    
   padding: 12px;    
@@ -22,7 +25,8 @@ input[type=email], select, textarea {
     
 label {    
   padding: 12px 12px 12px 0;    
-  display: inline-block;    
+  display: inline-block;  
+  color:white;  
 }    
     
 input[type=submit] {    
@@ -41,14 +45,18 @@ input[type=submit]:hover {
     
 .container {    
   border-radius: 5px;    
-  background-color: #f2f2f2;    
+  /*background-color: rgb(255, 253, 208);*/    
+
   padding: 20px;    
 }    
+
+
     
 .col-25 {    
   float: left;    
   width: 25%;    
-  margin-top: 6px;    
+  margin-top: 6px;
+  text-align: center;    
 }    
     
 .col-75 {    
@@ -67,12 +75,14 @@ input[type=submit]:hover {
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */    
 </style>    
 </head>    
-<body>    
-    <h1>Contact Our Team For Any Query</h1>
+<body style="background-color:rgba(80, 79, 57, 0.5);"> 
+    <center>  
+    <h1 class="display-2">Contact Our Development Team For Any Query</h1>
+    </center> 
 <div class="container">    
   <form action="https://formcarry.com/s/FGY4Ao_8EfQ" method="POST" >
     <div class="row">    
-      <div class="col-25">    
+      <div class="col-25 ">    
         <label for="fname">First Name</label>    
       </div>    
       <div class="col-75">    
@@ -87,6 +97,7 @@ input[type=submit]:hover {
         <input type="text" id="lname" name="lastname" placeholder="Your last name..">    
       </div>    
     </div>    
+    
     <div class="row">    
         <div class="col-25">    
           <label for="email">Mail Id</label>    
@@ -94,8 +105,7 @@ input[type=submit]:hover {
         <div class="col-75">    
           <input type="email" id="email" name="mailid" placeholder="Your mail id..">    
         </div>    
-      </div>   
-    </div>    
+      </div>       
     <div class="row">    
       <div class="col-25">    
         <label for="feed_back">Feed Back</label>    
