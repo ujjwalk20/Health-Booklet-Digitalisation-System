@@ -9,9 +9,9 @@
   <title>HMS - Django</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@1,700&family=Permanent+Marker&family=Raleway:ital@1&family=Work+Sans:ital,wght@0,500;1,900&display=swap');
-    </style>
+  </style>
   <style type="text/css">
-    body{
+    body {
       /* background-image: url("https://spo.iitk.ac.in/preparation/images/1.jpg");
       background-size: cover;
       background-repeat: no-repeat; */
@@ -44,31 +44,31 @@
 
     .btnSubmit {
       appearance: button;
-  backface-visibility: hidden;
-  background-color: rgb(121, 85, 72);
-  border-radius: 6px;
-  border-width: 0;
-  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
-  font-size: 100%;
-  height: 44px;
-  line-height: 1.15;
-  margin: 12px 0 0;
-  outline: none;
-  overflow: hidden;
-  /* padding: 0 25px; */
-  position: relative;
-  text-align: center;
-  text-transform: none;
-  transform: translateZ(0);
-  transition: all .2s,box-shadow .08s ease-in;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  padding:1%;
+      backface-visibility: hidden;
+      background-color: rgb(121, 85, 72);
+      border-radius: 6px;
+      border-width: 0;
+      box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .1) 0 2px 5px 0, rgba(0, 0, 0, .07) 0 1px 1px 0;
+      box-sizing: border-box;
+      color: #fff;
+      cursor: pointer;
+      font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Ubuntu, sans-serif;
+      font-size: 100%;
+      height: 44px;
+      line-height: 1.15;
+      margin: 12px 0 0;
+      outline: none;
+      overflow: hidden;
+      /* padding: 0 25px; */
+      position: relative;
+      text-align: center;
+      text-transform: none;
+      transform: translateZ(0);
+      transition: all .2s, box-shadow .08s ease-in;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      padding: 1%;
     }
   </style>
 
@@ -113,7 +113,7 @@
                 {% render_field doctorForm.address class="form-control" placeholder="Address" %}
               </div>
               <div class="form-group">
-                {% render_field doctorForm.mobile class="form-control"  placeholder="Contact" %}
+                {% render_field doctorForm.mobile class="form-control" pattern="[6789][0-9]{9}" placeholder="Contact" %}
               </div>
               <div class="form-group">
                 {% render_field doctorForm.profile_pic class="form-control" placeholder="Profile Picture" %}
@@ -122,8 +122,8 @@
             </div>
           </div>
           <center>
-          <button type="submit" class="btnSubmit">Register</button>
-        </center>
+            <button type="submit" class="btnSubmit">Register</button>
+          </center>
         </div>
       </div>
     </div>
