@@ -42,6 +42,7 @@ class Patient(models.Model):
     mobile = models.CharField(max_length=20, null=False)
     symptoms = models.CharField(max_length=100, null=False)
     assignedDoctorId = models.PositiveIntegerField(null=True)
+    # print (assignedDoctorId)
     admitDate = models.DateField(auto_now=True)
     status = models.BooleanField(default=False)
 

@@ -22,16 +22,23 @@
 </head>
 
 <div class="container">
-  <br/>
-  <br/>
-  <br/>
-  <br/>
- <form class="d-flex" method=GET action="{% url 'admin-view-appointment' %}">
-        {% csrf_token %}
+  <br />
+  <br />
+  <br />
+  <br />
+  <form class="d-flex" method=GET action="{% url 'admin-view-appointment' %}">
+    {% csrf_token %}
 
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name='q'>
-        <button class="btn btn-outline-secondary" type="submit" style="background-color: lightcoral">Search</button>
-      </form>
+    <input class="form-control me-2" type="search" placeholder="Search by doctor" aria-label="Search" name='q'>
+    <button class="btn btn-outline-secondary" type="submit" style="background-color: lightcoral">Search</button>
+  </form>
+  <br>
+  <form class="d-flex" method=GET action="{% url 'admin-view-appointment-pt' %}">
+    {% csrf_token %}
+
+    <input class="form-control me-2" type="search" placeholder="Search by patient" aria-label="Search" name='q'>
+    <button class="btn btn-outline-secondary" type="submit" style="background-color: lightcoral">Search</button>
+  </form>
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h6 class="panel-title">Appointments</h6>

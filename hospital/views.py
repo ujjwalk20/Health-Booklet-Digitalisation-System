@@ -161,8 +161,27 @@ def admin_doctor_view(request):
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
 def admin_view_doctor_view(request):
-    doctors = models.Doctor.objects.all().filter(status=True)
-    return render(request, 'hospital/admin_view_doctor.html', {'doctors': doctors})
+    if 'q' in request.GET:
+        q = request.GET['q']
+        doctors = models.Doctor.objects.all().filter(
+            user__first_name__icontains=q, status=True)
+        return render(request, 'hospital/admin_view_doctor.html', {'doctors': doctors})
+    else:
+        doctors = models.Doctor.objects.all().filter(status=True)
+        return render(request, 'hospital/admin_view_doctor.html', {'doctors': doctors})
+
+
+@login_required(login_url='adminlogin')
+@user_passes_test(is_admin)
+def admin_view_doctor_view_id(request):
+    if 'q' in request.GET:
+        q = request.GET['q']
+        doctors = models.Doctor.objects.all().filter(
+            user__id__icontains=q, status=True)
+        return render(request, 'hospital/admin_view_doctor.html', {'doctors': doctors})
+    else:
+        doctors = models.Doctor.objects.all().filter(status=True)
+        return render(request, 'hospital/admin_view_doctor.html', {'doctors': doctors})
 
 
 @login_required(login_url='adminlogin')
@@ -267,8 +286,27 @@ def admin_patient_view(request):
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
 def admin_view_patient_view(request):
-    patients = models.Patient.objects.all().filter(status=True)
-    return render(request, 'hospital/admin_view_patient.html', {'patients': patients})
+    if 'q' in request.GET:
+        q = request.GET['q']
+        patients = models.Patient.objects.all().filter(
+            user__first_name__icontains=q, status=True)
+        return render(request, 'hospital/admin_view_patient.html', {'patients': patients})
+    else:
+        patients = models.Patient.objects.all().filter(status=True)
+        return render(request, 'hospital/admin_view_patient.html', {'patients': patients})
+
+
+@login_required(login_url='adminlogin')
+@user_passes_test(is_admin)
+def admin_view_patient_view_id(request):
+    if 'q' in request.GET:
+        q = request.GET['q']
+        patients = models.Patient.objects.all().filter(
+            user__id__icontains=q, status=True)
+        return render(request, 'hospital/admin_view_patient.html', {'patients': patients})
+    else:
+        patients = models.Patient.objects.all().filter(status=True)
+        return render(request, 'hospital/admin_view_patient.html', {'patients': patients})
 
 
 @login_required(login_url='adminlogin')
@@ -457,6 +495,19 @@ def admin_view_appointment_view(request):
         q = request.GET['q']
         appointments = models.Appointment.objects.all().filter(
             doctorName__icontains=q, status=True)
+        return render(request, 'hospital/admin_view_appointment.html', {'appointments': appointments})
+    else:
+        appointments = models.Appointment.objects.all().filter(status=True)
+        return render(request, 'hospital/admin_view_appointment.html', {'appointments': appointments})
+
+
+@login_required(login_url='adminlogin')
+@user_passes_test(is_admin)
+def admin_view_appointment_view_pt(request):
+    if 'q' in request.GET:
+        q = request.GET['q']
+        appointments = models.Appointment.objects.all().filter(
+            patientName__icontains=q, status=True)
         return render(request, 'hospital/admin_view_appointment.html', {'appointments': appointments})
     else:
         appointments = models.Appointment.objects.all().filter(status=True)
@@ -698,14 +749,14 @@ def delete_appointment_view(request, pk):
 @user_passes_test(is_patient)
 def patient_dashboard_view(request):
     patient = models.Patient.objects.get(user_id=request.user.id)
-    doctor = models.Doctor.objects.get(user_id=patient.assignedDoctorId)
+    # doctor = models.Doctor.objects.get(user_id=patient.assignedDoctorId)
     mydict = {
         'patient': patient,
-        'doctorName': doctor.get_name,
-        'doctorMobile': doctor.mobile,
-        'doctorAddress': doctor.address,
+        # 'doctorName': doctor.get_name,
+        # 'doctorMobile': doctor.mobile,
+        # 'doctorAddress': doctor.address,
         'symptoms': patient.symptoms,
-        'doctorDepartment': doctor.department,
+        # 'doctorDepartment': doctor.department,
         'admitDate': patient.admitDate,
     }
     return render(request, 'hospital/patient_dashboard.html', context=mydict)
