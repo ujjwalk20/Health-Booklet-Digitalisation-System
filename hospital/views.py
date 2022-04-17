@@ -698,14 +698,14 @@ def delete_appointment_view(request, pk):
 @user_passes_test(is_patient)
 def patient_dashboard_view(request):
     patient = models.Patient.objects.get(user_id=request.user.id)
-    doctor = models.Doctor.objects.get(user_id=patient.assignedDoctorId)
+    # doctor = models.Doctor.objects.get(user_id=patient.assignedDoctorId)
     mydict = {
         'patient': patient,
-        'doctorName': doctor.get_name,
-        'doctorMobile': doctor.mobile,
-        'doctorAddress': doctor.address,
+        # 'doctorName': doctor.get_name,
+        # 'doctorMobile': doctor.mobile,
+        # 'doctorAddress': doctor.address,
         'symptoms': patient.symptoms,
-        'doctorDepartment': doctor.department,
+        # 'doctorDepartment': doctor.department,
         'admitDate': patient.admitDate,
     }
     return render(request, 'hospital/patient_dashboard.html', context=mydict)
