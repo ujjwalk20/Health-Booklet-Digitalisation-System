@@ -3,12 +3,13 @@ from django.contrib.auth.models import User
 
 
 departments = [('Cardiologist', 'Cardiologist'),
-               ('Dermatologists', 'Dermatologists'),
-               ('Emergency Medicine Specialists',
-                'Emergency Medicine Specialists'),
-               ('Allergists/Immunologists', 'Allergists/Immunologists'),
-               ('Anesthesiologists', 'Anesthesiologists'),
-               ('Colon and Rectal Surgeons', 'Colon and Rectal Surgeons')
+               ('Dermatologist', 'Dermatologist'),
+               ('General Practitioner',
+                'General Practitioner'),
+               ('Physiotherapist', 'Physiotherapist'),
+               ('Dentist', 'Dentist'),
+               ('Pediatrician', 'Pediatrician'),
+               ('Orthopedist', 'Orthopedist')
                ]
 
 

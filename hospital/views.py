@@ -15,7 +15,6 @@ from django.conf import settings
 from django.contrib import messages
 
 
-
 def home_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
@@ -124,6 +123,7 @@ def afterlogin_view(request):
             return redirect('patient-dashboard')
         else:
             return render(request, 'hospital/patient_wait_for_approval.html')
+
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
@@ -495,10 +495,11 @@ def admin_view_appointment_view(request):
     if 'q' in request.GET:
         q = request.GET['q']
         appointments = models.Appointment.objects.all().filter(
-            doctorName__icontains=q, status=True)
+            doctorName__icontains=q, status=True).order_by('-appointmentDate')
         return render(request, 'hospital/admin_view_appointment.html', {'appointments': appointments})
     else:
-        appointments = models.Appointment.objects.all().filter(status=True)
+        appointments = models.Appointment.objects.all().filter(
+            status=True).order_by('-appointmentDate')
         return render(request, 'hospital/admin_view_appointment.html', {'appointments': appointments})
 
 
@@ -508,10 +509,11 @@ def admin_view_appointment_view_pt(request):
     if 'q' in request.GET:
         q = request.GET['q']
         appointments = models.Appointment.objects.all().filter(
-            patientName__icontains=q, status=True)
+            patientName__icontains=q, status=True).order_by('-appointmentDate')
         return render(request, 'hospital/admin_view_appointment.html', {'appointments': appointments})
     else:
-        appointments = models.Appointment.objects.all().filter(status=True)
+        appointments = models.Appointment.objects.all().filter(
+            status=True).order_by('-appointmentDate')
         return render(request, 'hospital/admin_view_appointment.html', {'appointments': appointments})
 
 
