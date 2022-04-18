@@ -41,7 +41,7 @@ class Patient(models.Model):
         upload_to='profile_pic/PatientProfilePic/', default='../static/images/error.jpg', null=True, blank=True)
     address = models.CharField(max_length=40)
     mobile = models.CharField(max_length=20, null=False)
-    symptoms = models.CharField(max_length=100, null=False)
+    symptoms = models.CharField(max_length=100, null=True, default="NA")
     assignedDoctorId = models.PositiveIntegerField(null=True)
     # print (assignedDoctorId)
     admitDate = models.DateField(auto_now=True)

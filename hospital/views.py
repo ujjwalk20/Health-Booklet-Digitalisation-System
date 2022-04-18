@@ -410,7 +410,7 @@ def admin_discharge_patient_view(request):
 def discharge_patient_view(request, pk):
     patient = models.Patient.objects.get(id=pk)
     days = (date.today()-patient.admitDate)  # 2 days, 0:00:00
-    assignedDoctor = models.User.objects.all().filter(id=patient.assignedDoctorId)
+    # assignedDoctor = models.User.objects.all().filter(id=patient.assignedDoctorId)
     d = days.days  # only how many day that is 2
     patientDict = {
         'patientId': pk,
@@ -421,7 +421,7 @@ def discharge_patient_view(request, pk):
         'admitDate': patient.admitDate,
         'todayDate': date.today(),
         'day': d,
-        'assignedDoctorName': assignedDoctor[0].first_name,
+        # 'assignedDoctorName': assignedDoctor[0].first_name,
     }
     if request.method == 'POST':
         feeDict = {
@@ -435,7 +435,7 @@ def discharge_patient_view(request, pk):
         pDD = models.PatientDischargeDetails()
         pDD.patientId = pk
         pDD.patientName = patient.get_name
-        pDD.assignedDoctorName = assignedDoctor[0].first_name
+        # pDD.assignedDoctorName = assignedDoctor[0].first_name
         pDD.address = patient.address
         pDD.mobile = patient.mobile
         pDD.symptoms = patient.symptoms
@@ -495,11 +495,11 @@ def admin_view_appointment_view(request):
     if 'q' in request.GET:
         q = request.GET['q']
         appointments = models.Appointment.objects.all().filter(
-            doctorName__icontains=q, status=True).order_by('-appointmentDate')
+            doctorName__icontains=q, status=True).order_by('-id')
         return render(request, 'hospital/admin_view_appointment.html', {'appointments': appointments})
     else:
         appointments = models.Appointment.objects.all().filter(
-            status=True).order_by('-appointmentDate')
+            status=True).order_by('-id')
         return render(request, 'hospital/admin_view_appointment.html', {'appointments': appointments})
 
 
@@ -698,11 +698,12 @@ def doctor_view_appointment_view(request):
         q = request.GET['q']
         doctor = models.Doctor.objects.get(user_id=request.user.id)
         appointments = models.Appointment.objects.all().filter(
-            patientName__icontains=q, doctorId=request.user.id)
+            patientName__icontains=q, doctorId=request.user.id).order_by('-id')
         return render(request, 'hospital/doctor_view_appointment.html', {'appointments': appointments, 'doctor': doctor})
     else:
         doctor = models.Doctor.objects.get(user_id=request.user.id)
-        appointments = models.Appointment.objects.all().filter(doctorId=request.user.id)
+        appointments = models.Appointment.objects.all().filter(
+            doctorId=request.user.id).order_by('-id')
         return render(request, 'hospital/doctor_view_appointment.html', {'appointments': appointments, 'doctor': doctor})
 
 
@@ -861,11 +862,12 @@ def patient_view_appointment_view(request):
         q = request.GET['q']
         patient = models.Patient.objects.get(user_id=request.user.id)
         appointments = models.Appointment.objects.all().filter(
-            doctorName__icontains=q, patientId=request.user.id)
+            doctorName__icontains=q, patientId=request.user.id).order_by('-id')
         return render(request, 'hospital/patient_view_appointment.html', {'appointments': appointments, 'patient': patient})
     else:
         patient = models.Patient.objects.get(user_id=request.user.id)
-        appointments = models.Appointment.objects.all().filter(patientId=request.user.id)
+        appointments = models.Appointment.objects.all().filter(
+            patientId=request.user.id).order_by('-id')
         return render(request, 'hospital/patient_view_appointment.html', {'appointments': appointments, 'patient': patient})
 
 
