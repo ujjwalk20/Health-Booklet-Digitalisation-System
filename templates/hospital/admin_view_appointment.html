@@ -58,6 +58,7 @@
           <th>Doctor Name(ID)</th>
           <th>Patient Name(ID)</th>
           <th>Description</th>
+          <th>Prescription</th>
           <th>Date</th>
           <th>pre_stat</th>
         </tr>
@@ -68,6 +69,7 @@
         <td> {{a.doctorName}}({{a.doctorId}})</td>
         <td>{{a.patientName}}({{a.patientId}})</td>
         <td>{{a.description}}</td>
+        <td>{{a.prescription}}</td>
         <td>{{a.appointmentDate}}</td>
         {%if a.pre_stat%}
         <td> <span class="label label-primary">Confirmed</span></td>
