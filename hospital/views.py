@@ -12,6 +12,8 @@ from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required, user_passes_test
 from datetime import datetime, timedelta, date
 from django.conf import settings
+from django.contrib import messages
+
 
 
 def home_view(request):
@@ -122,7 +124,6 @@ def afterlogin_view(request):
             return redirect('patient-dashboard')
         else:
             return render(request, 'hospital/patient_wait_for_approval.html')
-
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)

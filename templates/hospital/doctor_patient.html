@@ -75,7 +75,16 @@
     }
   </style>
 </head>
+ {% load static %}
+<nav class="menu" tabindex="0">
+    <div class="smartphone-menu-trigger"></div>
+    <header class="avatar">
+      <img src="{% static doctor.profile_pic.url %}" alt="Profile Pic" />
+      <br><br>
+      <h2>{{request.user.first_name}}</h2>
+    </header>
 
+  </nav>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container">
   <div class="row">
@@ -108,4 +117,5 @@
 </div>
 
 <br><br><br><br><br><br><br>
+
 {% endblock content %}

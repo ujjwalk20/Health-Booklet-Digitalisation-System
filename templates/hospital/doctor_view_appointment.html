@@ -6,7 +6,7 @@
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-  
+
   <style media="screen">
     a:link {
       text-decoration: none;
@@ -21,16 +21,25 @@
     }
   </style>
 </head>
+{% load static %}
+<nav class="menu" tabindex="0">
+  <div class="smartphone-menu-trigger"></div>
+  <header class="avatar">
+    <img src="{% static doctor.profile_pic.url %}" alt="Profile Pic" />
+    <br><br>
+    <h2>{{request.user.first_name}}</h2>
+  </header>
 
+</nav>
 <div class="container">
-        <form class="d-flex" method=GET action="{% url 'doctor-view-appointment' %}">
-        {% csrf_token %}
+  <form class="d-flex" method=GET action="{% url 'doctor-view-appointment' %}">
+    {% csrf_token %}
 
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name='q'>
-        <button class="btn btn-primary" type="submit">Search</button>
-      </form>
-      <br>
-    
+    <input class="form-control me-2" type="search" placeholder="Search by patient name" aria-label="Search" name='q'>
+    <button class="btn btn-primary" type="submit">Search</button>
+  </form>
+  <br>
+
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h6 class="panel-title">Your Appointments</h6>

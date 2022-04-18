@@ -14,6 +14,15 @@
         }
     </style>
 </head>
+ {% load static %}
+<nav class="menu" tabindex="0">
+    <div class="smartphone-menu-trigger"></div>
+    <header class="avatar">
+      <br><br>
+      <h2>{{request.user.first_name}}</h2>
+    </header>
+
+  </nav>
 <div class="container">
     <!-- <table class="table table-hover" id="dev-table">
         <thead>

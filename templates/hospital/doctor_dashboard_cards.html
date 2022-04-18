@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -32,9 +33,9 @@
 
     .market-update-block.clr-block-1 {
       background: #f44336;
-      margin-right: 0.8em;
-      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-      transition: 0.5s all;
+      margin-right: 1.5em;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+      transition: 2.5s all;
       -webkit-transition: 0.5s all;
       -moz-transition: 0.5s all;
       -o-transition: 0.5s all;
@@ -113,8 +114,23 @@
 </head>
 
 <body>
+        {% load static %}
+<nav class="menu" tabindex="0">
+    <div class="smartphone-menu-trigger"></div>
+    <header class="avatar">
+      <img src="{% static doctor.profile_pic.url %}" alt="Profile Pic" />
+      <br><br>
+      <h2>{{request.user.first_name}}</h2>
+    </header>
+
+  </nav>
   <div class="market-updates">
-    <div class="col-md-4 market-update-gd" style="margin-left: 10%;">
+      
+      <h1 style="background-color: white ; color :lightcoral;"><center>Hello doctor! , you are perfect paradise when we are wrecked!</center></h1>
+      <h3 style="color :lightskyblue;"><center>Always remember</center></h3>
+      <h4 style="color: lightseagreen;"><center>Doctors run a nation where healthcare is of pivotal importance. If the safety of the citizen is not looked after, then the quality of human resources that a country is looking to nurture will be dismal. We can hence conclude that the Doctor is capable of performing multiple tasks.
+</center></h4>
+    <div class="col-md-16 market-update-gd" style="margin-left: 10%;">
       <div class="market-update-block clr-block-1">
         <div class="col-md-8 market-update-left">
           <h3>{{appointmentcount}}</h3>
