@@ -20,6 +20,6 @@ You can create all users but Admin is fixed choose below credentials to access t
    
    Some ducumentation links:
    
-    Link to the user manual: https://docs.google.com/document/d/1HfA7jhxrNq08lM3kIvMUYdab98CnsvcZlgrQjbAmcWs/edit
+   Link to the user manual: https://docs.google.com/document/d/1HfA7jhxrNq08lM3kIvMUYdab98CnsvcZlgrQjbAmcWs/edit
     Design doc: https://docs.google.com/document/d/1yI6bIJh1m4aqgfq21cUo3nZnZlr1yRbeOCnoQGttBy4/edit
-    Software Requirements specification: https://docs.google.com/document/d/1boA3A3a4OKM3IxlAuOmrCe1yTyp5g1OEHGa6Q5mHZLc/edit
+   Software Requirements specification: https://docs.google.com/document/d/1boA3A3a4OKM3IxlAuOmrCe1yTyp5g1OEHGa6Q5mHZLc/edit
